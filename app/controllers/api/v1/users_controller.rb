@@ -38,7 +38,15 @@ class Api::V1::UsersController < ApplicationController
 
   # delete
   def deleteUser
-
+    if @user
+      if @user.destroy()
+        render json: { msg: "User delete" }, status: :ok
+      else
+        render json: { msg: "Update Failed" }, status: :unprocessable_entity
+      end
+    else
+      render json: { msg: "User not Found" }, status: :unprocessable_entity
+    end
   end
 
   private
