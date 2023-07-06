@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :getUser, :only [:updateUser, :deleteUser]
+  before_action :getUser, only: [:updateUser, :deleteUser, :showUser]
 
   # get
   def getUsers
@@ -23,6 +23,15 @@ class Api::V1::UsersController < ApplicationController
 
   end
 
+  # show
+  def showUser
+    if @user
+      render json: @user, status: :ok
+    else
+      render json: { msg: "User not Found" }, status: :unprocessable_entity
+    end
+  end
+
   # put
   def updateUser
     if @user
@@ -42,7 +51,7 @@ class Api::V1::UsersController < ApplicationController
       if @user.destroy()
         render json: { msg: "User delete" }, status: :ok
       else
-        render json: { msg: "Update Failed" }, status: :unprocessable_entity
+        render json: { msg: "Delete Failed" }, status: :unprocessable_entity
       end
     else
       render json: { msg: "User not Found" }, status: :unprocessable_entity
