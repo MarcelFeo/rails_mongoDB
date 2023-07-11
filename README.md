@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="ruby-on-rails-app-with-mongodb-1200x675-PhotoRoom.png-PhotoRoom.png" alt="Descrição da imagem">
+</p>
+
 # Projeto Ruby on Rails com MongoDB 
 
 Bem-vindo ao repositório do projeto Ruby on Rails com MongoDB! Este projeto é um exemplo básico de uma aplicação web desenvolvida em Ruby on Rails, utilizando o banco de dados MongoDB como backend.
